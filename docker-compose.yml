@@ -1,0 +1,46 @@
+version: "3.9"
+services:
+  client:
+    build:
+      context: ./mediaplayer_frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./mediaplayer_frontend:/mediaplayer_frontend
+    image: client:client
+    container_name: react_container
+    command: npm start
+
+  mssql:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Password2"
+      MSSQL_PID: "Express"
+    ports:
+      - "1433:1433"
+    # build: ./mediaplayer_database
+    # container_name: db
+    # ports:
+    #   - "1433:1433"
+
+  api:
+    image: ${DOCKER_REGISTERY-}api
+    build:
+      context: ./mediaplayer_backend
+      dockerfile: ./LikeDislikeCommentAPI/Dockerfile
+    ports:
+      - "44307:80"
+    environment:
+      ASPNETCORE_URLS: "http://+80"
+      ASPNETCORE_HTTP_PORT: "44307"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: 1
+      ASPNETCORE_LOGGING_CONSOLE_DISABLECOLORS: true
+    volumes:
+      - ./mediaplayer_backend/LikeDislikeCommentAPI:/LikeDislikeCommentAPI
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    container_name: api
+    depends_on:
+      - mssql

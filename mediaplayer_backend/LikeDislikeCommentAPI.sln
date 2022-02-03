@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LikeDislikeCommentAPI", "LikeDislikeCommentAPI\LikeDislikeCommentAPI.csproj", "{11D31BAB-812A-4CD8-9A81-82A6A69F9833}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11D31BAB-812A-4CD8-9A81-82A6A69F9833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11D31BAB-812A-4CD8-9A81-82A6A69F9833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11D31BAB-812A-4CD8-9A81-82A6A69F9833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11D31BAB-812A-4CD8-9A81-82A6A69F9833}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C459C41-5225-462B-914C-35919CE91F36}
+	EndGlobalSection
+EndGlobal
